@@ -1,14 +1,9 @@
 const mongoose = require("mongoose");
 
 const tableSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true
-  },
-  capacity: {
-    type: Number,
-    required: true
-  }
+  name: String,
+  capacity: Number,
+  isAvailable: Boolean
 });
 
 module.exports = mongoose.model("Table", tableSchema);
