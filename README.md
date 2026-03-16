@@ -56,13 +56,13 @@ src
 Clone the repository
 
 ```
-git clone https://github.com/oumaima1115/Restaurant_APP.git
+git clone https://github.com/oumaima1115/Restaurant_Backend.git
 ```
 
 Move to the project folder
 
 ```
-cd Restaurant_APP
+cd Restaurant_Backend
 ```
 
 Install dependencies
