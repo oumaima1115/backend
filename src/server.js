@@ -8,18 +8,21 @@ const mongoose = require("mongoose");
 const app = express();
 
 app.use(express.json());//express.json() allows sending JSON data
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors());
 app.use('/api/users', userRoutes);
 app.use('/api/tables', tableRoutes);
 app.use('/api/reservations', reservationRoutes);
 
 // MongoDB connection
-mongoose.connect("mongodb://127.0.0.1:27017/restaurantDB")
-  .then(async () => {
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => {
     console.log("MongoDB connected");
   })
   .catch(err => console.error(err));
 
-app.listen(3001, () => {
-  console.log("Server running on port 3001");
+// Dynamic port for deployment
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
